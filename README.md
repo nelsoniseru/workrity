@@ -1,3 +1,4 @@
 * cd into product-catalog-api
-* run command "npm install"  to install the dependencies
-* run command "npm run dev" to run the project
+* Run command "npm install"  to install the dependencies
+* Run command "npm run dev" to run the project
+* The swagger api "http://localhost:3000/api-docs/"

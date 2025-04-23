@@ -55,7 +55,7 @@ export class ProductController {
   async getAllProducts(req: Request, res: Response): Promise<void> {
     try {
       const products: ProductData[] = await this.productService.getAllProducts();
-      res.status(200).json({status:false,data:products});
+      res.status(200).json({status:true,data:products});
     } catch (error: any) {
       res.status(400).json({status:false, error: error.message });
     }

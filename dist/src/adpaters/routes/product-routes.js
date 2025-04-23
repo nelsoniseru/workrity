@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const product_controller_1 = require("../controllers/product-controller");
+const product_services_1 = require("../../domain/services/product-services");
+const product_repositories_1 = require("../repositories/product-repositories");
+const router = (0, express_1.Router)();
+const productRepository = new product_repositories_1.MongoDBProductRepository();
+const productService = new product_services_1.ProductService(productRepository);
+const productController = new product_controller_1.ProductController(productService);
+router.post('/', (req, res) => productController.createProduct(req, res));
+router.get('/:id', (req, res) => productController.getProduct(req, res));
+router.put('/:id', (req, res) => productController.updateProduct(req, res));
+router.delete('/:id', (req, res) => productController.deleteProduct(req, res));
+router.get('/', (req, res) => productController.getAllProducts(req, res));
+router.get('/search/items', (req, res) => productController.searchProducts(req, res));
+exports.default = router;
